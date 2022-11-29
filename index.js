@@ -7,10 +7,10 @@ module.exports = class H2A {
   }
 
   deserialize(data) {
-    let result = data.toUppercase().replace(/FLAGBIT/, "");
+    let result = data.toUpperCase().replace(/FLAGBIT/, "");
     result = hexToAscii(result);
     result = result.trim();
-    result = result.split("");
+    result = result.split(",");
     return result;
   }
 
@@ -19,42 +19,42 @@ module.exports = class H2A {
   }
 
   get date() {
-    const pos = this.propPosition(EPropName.DATE);
+    const pos = this.propPosition("date");
     return this.props[pos];
   }
 
   get time() {
-    const pos = this.propPosition(EPropName.TIME);
+    const pos = this.propPosition("time");
     return this.props[pos];
   }
 
   get imei() {
-    const pos = this.propPosition(EPropName.IMEI);
+    const pos = this.propPosition("imei");
     return this.props[pos];
   }
 
   get governorId() {
-    const pos = this.propPosition(EPropName.GOVERNOR_ID);
+    const pos = this.propPosition("governorId");
     return this.props[pos];
   }
 
   get vehicleRegNumber() {
-    const pos = this.propPosition(EPropName.VEHICLE_REG_NUMBER);
+    const pos = this.propPosition("vehicleRegNumber");
     return this.props[pos];
   }
 
   get speed() {
-    const pos = this.propPosition(EPropName.SPEED);
+    const pos = this.propPosition("speed");
     return this.props[pos];
   }
 
   get odometer() {
-    const pos = this.propPosition(EPropName.ODOMETER);
+    const pos = this.propPosition("odometer");
     return this.props[pos];
   }
 
   get gpsStatus() {
-    const pos = this.propPosition(EPropName.GPS_STATUS);
+    const pos = this.propPosition("gpsStatus");
     const result = this.props[pos];
     if (result === "0") return "Invalid";
     if (result === "1") return "Valid";
@@ -62,38 +62,38 @@ module.exports = class H2A {
   }
 
   get numberOfSatelite() {
-    const pos = this.propPosition(EPropName.NUMBER_OF_SATELITE);
+    const pos = this.propPosition("numberOfSatelite");
     return this.props[pos];
   }
 
   get longitude() {
-    const pos = this.propPosition(EPropName.LONGITUDE);
+    const pos = this.propPosition("longitude");
     return this.props[pos];
   }
 
   get longitudeDirection() {
-    const pos = this.propPosition(EPropName.LONGITUDE_DIRECTION);
+    const pos = this.propPosition("longitudeDirection");
     return this.props[pos];
   }
 
   get latitude() {
-    const pos = this.propPosition(EPropName.LATITUDE);
+    const pos = this.propPosition("latitude");
     let result = this.props[pos];
     return result;
   }
 
   get latitudeDirection() {
-    const pos = this.propPosition(EPropName.LATITUDE_DIRECTION);
+    const pos = this.propPosition("latitudeDirection");
     return this.props[pos];
   }
 
   get powerSignal() {
-    const pos = this.propPosition(EPropName.POWER_SIGNAL);
+    const pos = this.propPosition("powerSignal");
     return this.props[pos] === "0" ? "OK" : "DISCONNECTED";
   }
 
   get speedSignal() {
-    const pos = this.propPosition(EPropName.SPEED_SIGNAL);
+    const pos = this.propPosition("speedSignal");
     return this.props[pos] === "0" ? "OK" : "DISCONNECTED";
   }
 };
